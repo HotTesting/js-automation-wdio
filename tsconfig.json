@@ -3,7 +3,8 @@
     "module": "commonjs",
     "target": "es2018",
     "sourceMap": true,
-    "outDir": "./built"
+    "outDir": "./built",
+    "types": ["webdriverio","mocha", "node"], /* Type declaration files to be included in compilation. */
   },
   "exclude": [
     "node_modules/"
