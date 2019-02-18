@@ -6,7 +6,7 @@
   "scripts": {
     "init": "wdio --init",
     "test": "wdio ./wdio.conf.js",
-    "ci-test": "wdio --host 'ip-5236.sunline.net.ua' --port '4444' --path '/wd/hub' ./wdio.conf.js"
+    "ci-test": "wdio ./wdio.conf.ci.js"
   },
   "dependencies": {
     "@types/chai": "^4.1.7",

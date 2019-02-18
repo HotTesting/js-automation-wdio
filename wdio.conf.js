@@ -1,17 +1,13 @@
 exports.config = {
-  // hostname: "localhost",
-  // port: 4444,
-  // path: "/wd/hub",
+  hostname: "localhost",
+  port: 4444,
+  path: "/wd/hub",
   specs: ["./tests/*.ts"],
   sync: true,
   services: ["selenium-standalone"],
   capabilities: [
     {
-      browserName: "chrome",
-      "selenoid:options": {
-        enableVNC: true,
-        name: `Wdio ${require("./package.json").name}`
-      }
+      browserName: "chrome"
     }
   ],
   baseUrl: "http://ip-5236.sunline.net.ua:38015",
