@@ -1,0 +1,22 @@
+{
+  "name": "startit-js-automation-wdio",
+  "version": "0.0.2",
+  "private": true,
+  "description": "Demonstration project for students. Feburary 18",
+  "scripts": {
+    "init": "wdio --init",
+    "test": "wdio ./wdio.conf.js",
+    "ci-test": "wdio --host 'ip-5236.sunline.net.ua' --port '4444' --path '/wd/hub' ./wdio.conf.js"
+  },
+  "dependencies": {
+    "@types/node": "10.12.10",
+    "@types/mocha": "5.2.5",
+    "@types/webdriverio": "4.13.0",
+    "typescript": "3.1.6",
+    "ts-node": "7.0.1",
+    "webdriverio": "4.14.0",
+    "wdio-mocha-framework": "0.6.4",
+    "wdio-chromedriver-service": "5.0.0",
+    "chromedriver": "2.46.0"
+  }
+}
