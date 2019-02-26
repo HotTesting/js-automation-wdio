@@ -4,7 +4,7 @@
     "target": "es2018",
     "sourceMap": true,
     "outDir": "./built",
-    "types": ["webdriverio","mocha", "node"], /* Type declaration files to be included in compilation. */
+    "types": ["@wdio/sync","mocha", "node"]
   },
   "exclude": [
     "node_modules/"
