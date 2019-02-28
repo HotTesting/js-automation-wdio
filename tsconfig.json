@@ -4,9 +4,11 @@
     "target": "es2018",
     "sourceMap": true,
     "outDir": "./built",
-    "types": ["@wdio/sync","mocha", "node"]
+    // "noLib": true,
+    "lib": ["es2018"],
+    // "typeRoots": ["./node_modules/@types", "./node_modules/@wdio/sync"],
+    // "files": ["./node_modules/@wdio/sync/webdriverio.d.ts"]
+    "types": ["@wdio/sync", "@wdio/mocha-framework", "node"]
   },
-  "exclude": [
-    "node_modules/"
-  ]
+  "exclude": ["./node_modules/"]
 }

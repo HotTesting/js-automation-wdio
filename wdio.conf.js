@@ -2,7 +2,7 @@ exports.config = {
   hostname: "localhost",
   port: 4444,
   path: "/wd/hub",
-  specs: ["./tests/lesson_3/registration.ts"],
+  specs: ["./tests/lesson_4/tests.ts"],
   sync: true,
   services: ["selenium-standalone"],
   capabilities: [
@@ -14,11 +14,16 @@ exports.config = {
   framework: "mocha",
   mochaOpts: {
     ui: "bdd",
-    timeout: 120000
+    timeout: 120000,
+    // retries: 2
+    fgrep: "C1232"
   },
-  reporters: ['spec'],
+  reporters: ["spec"],
   before: function(capabilities, specs) {
     process.env.TS_NODE_FILES = true;
     require("ts-node").register();
+  },
+  beforeTest: function(test) {
+    console.log("STARTING TEST!");
   }
 };
