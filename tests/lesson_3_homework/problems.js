@@ -4,6 +4,7 @@
 let allDuckItems = [];
 let res = allDuckItems.every(duck => duck);
 console.log(res); // true
+expect(allDuckItems.length).not.to.equal(0)
 
 it("should show results in case multiple items matches", function() {
   searchWord("duck");

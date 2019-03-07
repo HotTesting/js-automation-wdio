@@ -21,7 +21,10 @@ describe("Registration", function() {
     $('input[name="confirmed_password"]').setValue("123456");
     $('button[name="create_account"]').click();
     browser.pause(1500);
-    expect(browser.getUrl()).not.to.contain("create_account");
+    browser.waitUntil(function () {
+      return !browser.getUrl().includes("create_account");
+    })
+    // expect(browser.getUrl()).not.to.contain("create_account");
     expect($(".alert.alert-success").isDisplayed()).to.equal(
       true,
       "Expected Alert to be visible, but it doesnt"

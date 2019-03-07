@@ -2,7 +2,7 @@ exports.config = {
   hostname: "localhost",
   port: 4444,
   path: "/wd/hub",
-  specs: ["./tests/lesson_4/tests.ts"],
+  specs: ["./tests/lesson_5/waits.ts"],
   sync: true,
   services: ["selenium-standalone"],
   capabilities: [
@@ -16,7 +16,7 @@ exports.config = {
     ui: "bdd",
     timeout: 120000,
     // retries: 2
-    fgrep: "C1232"
+    // fgrep: "C1232"
   },
   reporters: ["spec"],
   before: function(capabilities, specs) {
@@ -25,5 +25,8 @@ exports.config = {
   },
   beforeTest: function(test) {
     console.log("STARTING TEST!");
+    browser.setTimeout({
+      implicit: 1000
+    });
   }
 };
