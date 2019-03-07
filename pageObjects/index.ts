@@ -1,8 +1,3 @@
-import { checkout } from './checkout';
-import { productDetails } from './productDetails';
-import { confirmation } from './confirmation';
-export {
-    checkout,
-    productDetails,
-    confirmation,
-}
+export { Checkout } from "./checkout";
+export { ProductDetails } from "./productDetails";
+export { Confirmation } from "./confirmation";

@@ -2,8 +2,9 @@ exports.config = {
   hostname: "localhost",
   port: 4444,
   path: "/wd/hub",
-  specs: ["./tests/lesson_5/waits.ts"],
+  specs: ["./tests/lesson_6/po.ts"],
   sync: true,
+  logLevel: "silent",
   services: ["selenium-standalone"],
   capabilities: [
     {
@@ -24,9 +25,8 @@ exports.config = {
     require("ts-node").register();
   },
   beforeTest: function(test) {
-    console.log("STARTING TEST!");
     browser.setTimeout({
-      implicit: 1000
+      implicit: 250
     });
   }
 };

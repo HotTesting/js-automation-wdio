@@ -1,13 +1,10 @@
-export class BasePage {
-  open() {
-    throw new Error("Not implemented!");
+export class BasePO {
+  isLoaded() {
+    throw new Error("isLoaded method is not implemented in " + this);
   }
-  isLoaded(condition) {
-    try {
-      browser.waitUntil(condition, 10000);
-      return true;
-    } catch (err) {
-      return false;
-    }
+
+  open(url: string) {
+    console.log("Navigating to: ", url);
+    browser.url(url);
   }
 }

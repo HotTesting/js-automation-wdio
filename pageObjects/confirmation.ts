@@ -1,15 +1,19 @@
-import { BasePage } from './base';
-export class Confirmation extends BasePage {
+import { BasePO } from "./base";
+export class ConfirmationPO extends BasePO {
   private titleText: string = "h1.title";
-  
-  isLoaded() {
-    return super.isLoaded(()=> browser.isVisible(this.titleText))
-  }
 
+  isLoaded() {
+    try {
+      $(this.titleText).waitForDisplayed();
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
   confirmationTitle(): string {
-    browser.waitForVisible(this.titleText, 5000);
+    $(this.titleText).waitForDisplayed(5000);
     return $(this.titleText).getText();
   }
 }
 
-export const confirmation = new Confirmation();
+export const Confirmation = new ConfirmationPO();
