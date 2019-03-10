@@ -1,6 +1,6 @@
 export class BasePO {
   isLoaded() {
-    throw new Error("isLoaded method is not implemented in " + this);
+    throw new Error("isLoaded method is not implemented");
   }
 
   open(url: string) {

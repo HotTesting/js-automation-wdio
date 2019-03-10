@@ -1,11 +1,12 @@
 import { Input } from "./input";
 import { Dropdown } from "./dropdown";
-
 export class CustomerDetails {
   protected containerLocator: string;
+
   protected get container() {
     return $(this.containerLocator);
   }
+
   protected lastName: Input = new Input(() => {
     return this.container.$('input[name="lastname"]');
   });
@@ -47,7 +48,7 @@ export class CustomerDetails {
     this.containerLocator = containerLocator;
   }
 
-  enterCustomerDetails(customerDetails: ICustomerDetails): any {
+  enterCustomerDetails(customerDetails: ICustomerDetails) {
     $(".loader-wrapper").waitForDisplayed(undefined, true); // invisibility of loader
     this.firstName.type(customerDetails.firstName);
     this.lastName.type(customerDetails.lastName);

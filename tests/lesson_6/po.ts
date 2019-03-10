@@ -19,7 +19,6 @@ describe("Guest", function() {
       city: "CityName",
       email: faker.internet.email(),
       phone: faker.phone.phoneNumberFormat(),
-      
     });
     Checkout.saveChanges();
     Checkout.confirmOrder();
