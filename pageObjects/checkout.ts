@@ -6,7 +6,6 @@ export class CheckoutPO extends BasePO {
 
   constructor() {
     super();
-    this.shopingCart = new ShopingCart()
     this.customerDetails = new CustomerDetails(
       "#box-checkout-customer .billing-address"
     );
