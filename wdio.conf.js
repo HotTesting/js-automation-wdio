@@ -5,7 +5,7 @@ const debugConfig = {
   hostname: "localhost",
   port: 4444,
   path: "/wd/hub",
-  specs: ["./tests/lesson_6/po.ts"],
+  specs: ["./tests/lesson_7/po.ts"],
   sync: true,
   logLevel: "silent",
   services: ["selenium-standalone"],
@@ -40,7 +40,7 @@ const debugConfig = {
 };
 
 if (process.env.DEBUG == "1") {
-  console.log("Running in debug mode!");
+  console.log("###### Running in debug mode! ######");
   //debugConfig.debug = true;
   debugConfig.execArgv = ["--inspect=127.0.0.1:5858"];
   const chromeCap = debugConfig.capabilities.find(cap => {
@@ -51,7 +51,5 @@ if (process.env.DEBUG == "1") {
   chromeCap["selenoid:options"].name = "StartIT automation";
   chromeCap["selenoid:options"].sessionTimeout = "10m";
 }
-
-console.log(debugConfig);
 
 module.exports.config = debugConfig;
