@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import * as faker from "faker";
 import { ProductDetails, Checkout, Confirmation } from "../../pageObjects";
-import { createNewUser } from '../../utils/createAccount';
+import { createNewUser } from "../../utils/createAccount";
 
 // PageObject example
 describe.skip("Guest", function() {
@@ -15,11 +15,11 @@ describe.skip("Guest", function() {
       lastName: "TestLastName",
       address1: "address line 1",
       address2: "address line 2",
-      country: 'UA',
+      country: "UA",
       postCode: faker.address.zipCode(),
       city: "CityName",
       email: faker.internet.email(),
-      phone: faker.phone.phoneNumberFormat(),
+      phone: faker.phone.phoneNumberFormat()
     });
     Checkout.saveChanges();
     Checkout.confirmOrder();
@@ -34,15 +34,17 @@ describe.skip("Guest", function() {
 });
 
 describe("Registered user", function() {
-  beforeEach(function () {
-    let credentials = createNewUser()
-    browser.url('/login')
-    $('[name="login_form"]').$('[name="email"]').setValue(credentials.email)
-    $('[name="login_form"]').$('[name="password"]').setValue(credentials.password)
-    $('[name="login_form"]').$('button[name="login"]').click()
+  // beforeEach(function() {
+  //   const credentials = createNewUser();
+  //   browser.url("/login");
+  //   browser.pause(1000)
+  //   let loginForm = $('[name="login_form"]');
+  //   loginForm.$('[name="email"]').setValue(credentials.email);
+  //   loginForm.$('[name="password"]').setValue(credentials.password);
+  //   loginForm.$('button[name="login"]').click();
 
-    browser.pause(10000)
-  })
+  //   browser.pause(10000);
+  // });
 
   it("should be able to buy item", function() {
     ProductDetails.open("/rubber-ducks-c-1/red-duck-p-3");
@@ -54,11 +56,11 @@ describe("Registered user", function() {
       lastName: "TestLastName",
       address1: "address line 1",
       address2: "address line 2",
-      country: 'UA',
+      country: "UA",
       postCode: faker.address.zipCode(),
       city: "CityName",
       email: faker.internet.email(),
-      phone: faker.phone.phoneNumberFormat(),
+      phone: faker.phone.phoneNumberFormat()
     });
     Checkout.saveChanges();
     Checkout.confirmOrder();
