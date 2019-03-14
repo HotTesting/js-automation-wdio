@@ -5,17 +5,38 @@ const debugConfig = {
   hostname: "localhost",
   port: 4444,
   path: "/wd/hub",
-  specs: ["./tests/lesson_7/po.ts"],
+  specs: ["./tests/lesson_7/test.ts"],
   sync: true,
   logLevel: "silent",
   services: ["selenium-standalone"],
-  capabilities: [
-    {
-      browserName: "chrome"
-    }
-  ],
+  // capabilities: [
+  //   {
+  //     browserName: "chrome"
+  //   }
+  // ],
   baseUrl: "http://ip-5236.sunline.net.ua:38015",
   framework: "mocha",
+
+  // multiremote
+
+  capabilities: {
+    user1: {
+      capabilities: {
+        browserName: "chrome"
+      }
+    },
+    user2: {
+      capabilities: {
+        browserName: "chrome"
+      }
+    },
+    user3: {
+      capabilities: {
+        browserName: "chrome"
+      }
+    }
+  },
+
   mochaOpts: {
     ui: "bdd",
     timeout: 120000
