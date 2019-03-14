@@ -17,24 +17,26 @@ async function createNewUserAsync() {
   );
   const password = "123456";
   console.log("EMAIL", email);
+
+  const formData = {
+    token: token,
+    company: "",
+    tax_id: "",
+    firstname: "test",
+    lastname: "test",
+    address1: "",
+    address2: "",
+    postcode: "",
+    city: "",
+    country_code: "RU",
+    email: email,
+    phone: "12839129384",
+    password: password,
+    confirmed_password: password,
+    create_account: "Create Account"
+  };
   await request.post("http://ip-5236.sunline.net.ua:38015/create_account", {
-    form: {
-      token: token,
-      company: "",
-      tax_id: "",
-      firstname: "test",
-      lastname: "test",
-      address1: "",
-      address2: "",
-      postcode: "",
-      city: "",
-      country_code: "RU",
-      email: email,
-      phone: "12839129384",
-      password: password,
-      confirmed_password: password,
-      create_account: "Create Account"
-    }
+    form: formData
   });
 
   return { email: email, password: password };

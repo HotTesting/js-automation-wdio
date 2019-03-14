@@ -35,11 +35,11 @@ describe.skip("Guest", function() {
 
 describe("Registered user", function() {
   beforeEach(function () {
-    let credentials = createNewUser()
+    //let credentials = createNewUser()
     browser.url('/login')
-    $('[name="login_form"]').$('[name="email"]').setValue(credentials.email)
-    $('[name="login_form"]').$('[name="password"]').setValue(credentials.password)
-    $('[name="login_form"]').$('button[name="login"]').click()
+    // $('[name="login_form"]').$('[name="email"]').setValue(credentials.email)
+    // $('[name="login_form"]').$('[name="password"]').setValue(credentials.password)
+    // $('[name="login_form"]').$('button[name="login"]').click()
 
     browser.pause(10000)
   })
