@@ -12,10 +12,10 @@
         "sourceMaps": true,
         "args": [
           "./wdio.conf.js", 
-          // "--spec", 
-          // "'./tests/parallel/*.ts'"
-          // "--grep",
-          // "#23842"
+          "--spec", 
+          "./tests/lesson_6/po.ts"
+          //"--grep",
+          //"#23842"
         ],
         "env": {
           "DEBUG": "1",

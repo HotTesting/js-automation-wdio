@@ -22,6 +22,7 @@ describe("Registration", function() {
     $('button[name="create_account"]').click();
     browser.pause(1500);
     browser.waitUntil(function () {
+      // @ts-ignore
       return !browser.getUrl().includes("create_account");
     })
     // expect(browser.getUrl()).not.to.contain("create_account");

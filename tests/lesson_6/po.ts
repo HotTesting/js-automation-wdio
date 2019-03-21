@@ -4,7 +4,7 @@ import { ProductDetails, Checkout, Confirmation } from "../../pageObjects";
 import { createNewUser } from "../../utils/createAccount";
 
 // PageObject example
-describe.skip("Guest", function() {
+describe("Guest", function() {
   it("should be able to buy item", function() {
     ProductDetails.open("/rubber-ducks-c-1/red-duck-p-3");
     ProductDetails.addToCart();
@@ -33,7 +33,7 @@ describe.skip("Guest", function() {
   });
 });
 
-describe("Registered user", function() {
+describe.skip("Registered user", function() {
   // beforeEach(function() {
   //   const credentials = createNewUser();
   //   browser.url("/login");

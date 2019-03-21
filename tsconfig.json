@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2018",
-    // "sourceMap": true,
+    //"sourceMap": true,
     "inlineSourceMap": true,
     "outDir": "./built",
     // "noLib": true,

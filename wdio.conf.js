@@ -1,41 +1,50 @@
 process.env.TS_NODE_FILES = true;
 require("ts-node").register();
 
-const debugConfig = {
+if (process.env.SUITE_TO_RUN) {
+  let MY_TESTS = {
+    "SMOKE": "./tests/**/1.ts",
+    "FULL_REGRESSION": "./tests/**/2.ts"
+  }
+
+  const SPECS = a[process.env.SUITE_TO_RUN]
+}
+
+const wdioConfig = {
   hostname: "localhost",
   port: 4444,
   path: "/wd/hub",
-  specs: ["./tests/lesson_7/test.ts"],
+  specs: [SPECS],
   sync: true,
   logLevel: "silent",
   services: ["selenium-standalone"],
-  // capabilities: [
-  //   {
-  //     browserName: "chrome"
-  //   }
-  // ],
+  capabilities: [
+    {
+      browserName: "chrome"
+    }
+  ],
   baseUrl: "http://ip-5236.sunline.net.ua:38015",
   framework: "mocha",
 
   // multiremote
 
-  capabilities: {
-    user1: {
-      capabilities: {
-        browserName: "chrome"
-      }
-    },
-    user2: {
-      capabilities: {
-        browserName: "chrome"
-      }
-    },
-    user3: {
-      capabilities: {
-        browserName: "chrome"
-      }
-    }
-  },
+  // capabilities: {
+  //   user1: {
+  //     capabilities: {
+  //       browserName: "chrome"
+  //     }
+  //   },
+  //   user2: {
+  //     capabilities: {
+  //       browserName: "chrome"
+  //     }
+  //   },
+  //   user3: {
+  //     capabilities: {
+  //       browserName: "chrome"
+  //     }
+  //   }
+  // },
 
   mochaOpts: {
     ui: "bdd",
@@ -63,8 +72,9 @@ const debugConfig = {
 if (process.env.DEBUG == "1") {
   console.log("###### Running in debug mode! ######");
   //debugConfig.debug = true;
-  debugConfig.execArgv = ["--inspect=127.0.0.1:5858"];
-  const chromeCap = debugConfig.capabilities.find(cap => {
+  wdioConfig.execArgv = ["--inspect=127.0.0.1:5858"];
+  wdioConfig.mochaOpts.timeout = 360000
+  const chromeCap = wdioConfig.capabilities.find(cap => {
     return cap.browserName == "chrome";
   });
   chromeCap["selenoid:options"] = {};
@@ -73,4 +83,4 @@ if (process.env.DEBUG == "1") {
   chromeCap["selenoid:options"].sessionTimeout = "10m";
 }
 
-module.exports.config = debugConfig;
+module.exports.config = wdioConfig;
